@@ -72,7 +72,7 @@ with panel1:
     # For chart1 we put a multiple-line chart
     with chart1:
         # Create a selection that chooses the nearest point & selects based on x-value
-        nearest = alt.selection(type='single', nearest=True, on='mouseover', fields=['faculty_count'], empty='none')
+        nearest = alt.selection_point(nearest=True, on='mouseover', fields=['faculty_count'], empty='none')
         # Draw the basic line chart
         t = alt.TitleParams("The Relationship Between Student_Faculty_Ratio & Score", subtitle=["Multiple-Line Tooltip"])
         line = alt.Chart(current_data, title=t).mark_line(interpolate='basis').encode(
@@ -84,7 +84,7 @@ with panel1:
         selectors = alt.Chart(current_data).mark_point().encode(
             x = alt.X('faculty_count:Q'),
             opacity=alt.value(0),
-        ).add_selection(
+        ).add_params(
             nearest
         )
         # Draw points on the line, and highlight based on selection
