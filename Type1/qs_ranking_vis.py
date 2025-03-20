@@ -161,7 +161,7 @@ with panel2:
 
 
 # Set Up
-country_codes = pd.read_csv('https://raw.githubusercontent.com/Dr-Banana/CSE5544/main/Zhang_10419_lab4_code/country_codes.csv' ,sep=',', encoding='latin-1')
+country_codes = pd.read_csv('https://raw.githubusercontent.com/CristoDragon/Visualization_Projects/refs/heads/main/Type1/Data/country_codes.csv' ,sep=',', encoding='latin-1')
 country_codes.set_index('English short name', inplace = True)
 
 
