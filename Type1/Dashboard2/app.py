@@ -1,5 +1,4 @@
 from pickle import TRUE
-from matplotlib import interactive
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
