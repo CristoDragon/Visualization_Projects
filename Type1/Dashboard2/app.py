@@ -23,8 +23,8 @@ if st.checkbox("查看原始数据: TouchdownCustomerInformation.csv"):
     st.write(df_Customer)
 df_service = service_data.replace(r'^\s*$', np.nan, regex=True)
 df_service['合同价格'] = df_service['合同价格'].apply(np.int64)
-if st.checkbox("查看原始数据: serviceData.csv"):
-    st.write(df_service)
+# if st.checkbox("查看原始数据: serviceData.csv"):
+#     st.write(df_service)
 
 
 st.subheader("1. 签约学员购买服务分析")
@@ -54,7 +54,7 @@ count = df_Customer['实地背景提升'].value_counts()
 # Create lists to store the percentage results
 list_percentage = []
 for i in range(0, count.size):
-    list_percentage.append(((count[i] / count.sum()) * 100).round(2).astype(str) + '%')
+    list_percentage.append(((count.iloc[i] / count.sum()) * 100).round(2).astype(str) + '%')
 list_index = count.index[:].tolist()
 # Create a dictionary to store the percentage
 dic_percentage1 = {"实地背景提升":list_index, "占比":list_percentage}
@@ -130,7 +130,7 @@ count = df_Customer['合同类型'].value_counts()
 # Create lists to store the percentage results
 list_percentage = []
 for i in range(0, count.size):
-    list_percentage.append(((count[i] / count.sum()) * 100).round(2).astype(str) + '%')
+    list_percentage.append(((count.iloc[i] / count.sum()) * 100).round(2).astype(str) + '%')
 list_index = count.index[:].tolist()
 # Create a dictionary to store the percentage
 dic_percentage2 = {"合同类型":list_index, "占比":list_percentage}
@@ -308,22 +308,7 @@ st.write("在图2.4中我们看到经济学和金融以绝对的数量优势排�
 
 
 
-# Create a word cloud
-words1 = ""
-for i in range(0, df_Customer.shape[0]):
-    isNaN = pd.isna(df_Customer.iloc[i, 17])
-    if(isNaN == False):
-        words1 = words1 + df_Customer.iloc[i, 17] + " "
-w1 = wordcloud.WordCloud(width = 800, height = 800, background_color ='white').generate(words1)
-fig1 = plt.figure(figsize = (6, 6), facecolor = None)
-plt.imshow(w1)
-plt.axis("off")
-plt.tight_layout(pad = 0)
-st.pyplot(fig1)
-st.caption("注: 以上词云可视化了拓达学员申请的专业出现的频率")
-st.write("从上面这个word cloud中我们可以看到几个大字体的单词(意味着学员申请的最多),比如BA,Finance,Marketing,Management, \
-    无一例外都和商科关联很大,这也与拓达学员的本科专业背景相呼应. 虽然本科在读专业几乎没有有BA(商业分析),但BA却是大家 \
-        最喜欢申请的专业,似乎各个专业的学员都对BA展现出了较高的兴趣.")
+ 
 
 
 
