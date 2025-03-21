@@ -8,5 +8,5 @@ The app allows users to filter the data by year, university type, university siz
 
 2. Dashboard 2
 - Intro: This is a Streamlit app that visualizes the customer data from CRM system combined with sales data in past years, providing detailed analysis for each visualization graph to support data-driven insights and B2C marketing strategies.
-- Link: https://cristodragon-touchdown-customeranalytics-0hlqad.streamlit.app/
+- Link: https://visualizationprojects-f3ymkzwqxeqvacuuuvxgsb.streamlit.app/
 
