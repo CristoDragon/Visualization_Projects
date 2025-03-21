@@ -5,3 +5,4 @@ seaborn
 numpy
 altair
 vega_datasets
+wordcloud
